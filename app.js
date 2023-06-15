@@ -114,6 +114,7 @@ let majorContainer = {
   },
 };
 
+let body = document.querySelector("body");
 let mainImage = document.querySelector(".mainImg");
 let option = document.querySelector(".options");
 let miniOp = document.querySelector(".choice");
@@ -126,6 +127,10 @@ const changeAllMens = () => {
   changeMensTopPic();
   changeMensOptions();
   mensProduct();
+  changeMensPolaroid();
+  changeMensText();
+
+  body.style.backgroundColor = "LightSteelBlue";
 };
 
 const changeMensTopPic = () => {
@@ -143,7 +148,7 @@ const changeMensOptions = () => {
     let txt = document.createElement("div");
     txt.innerHTML = tagname;
     // replace element with new element
-    option.append(txt);
+    option.replaceChild(txt);
   });
 };
 
@@ -156,11 +161,24 @@ const mensProduct = () => {
   });
 };
 
+const changeMensPolaroid = () => {
+  pic.setAttribute("src", majorContainer.mens.lowerImage);
+};
+
+const changeMensText = () => {
+  textBox.innerHTML = majorContainer.mens.textDescription;
+};
+
 // Change to Womens Page
 const changeAllWomens = () => {
   changeWomensTopPic();
   changeWomensOptions();
   womensProduct();
+  changeWomensPolaroid();
+  changeWomensText();
+
+  body.style.backgroundColor = "MediumOrchid";
+  body.style.color = "white";
 };
 
 const changeWomensTopPic = () => {
@@ -191,11 +209,23 @@ const womensProduct = () => {
   });
 };
 
+const changeWomensPolaroid = () => {
+  pic.setAttribute("src", majorContainer.womens.lowerImage);
+};
+
+const changeWomensText = () => {
+  textBox.innerHTML = majorContainer.womens.textDescription;
+};
+
 // Change to Childrens Page
 const changeAllChildren = () => {
   changeChildrenTopPic();
   changeChildrenOptions();
   childrenProduct();
+  changeChildrenPolaroid();
+  changeChildrenText;
+
+  body.style.backgroundColor = "Thistle";
 };
 
 const changeChildrenTopPic = () => {
@@ -224,4 +254,12 @@ const childrenProduct = () => {
     shopBox.setAttribute("class", "product");
     productBox.append(shopBox);
   });
+};
+
+const changeChildrenPolaroid = () => {
+  pic.setAttribute("src", majorContainer.children.lowerImage);
+};
+
+const changeChildrenText = () => {
+  textBox.innerHTML = majorContainer.children.textDescription;
 };
